@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:study_ui_flutter_tora_2/models/product_model.dart';
+import 'package:study_ui_flutter_tora_2/router/router.dart';
 import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen_compoment/home_screen_product_card.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -49,6 +50,9 @@ class ProductDetailsState extends State<ProductDetails> {
               return Padding(
                 padding: const EdgeInsets.only(left: 34),
                 child: GestureDetector(
+                  onDoubleTap: (){
+                    Navigator.pushNamed(context, AppRoutes.productdetails);
+                  },
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     child: ProductCard(product: product),

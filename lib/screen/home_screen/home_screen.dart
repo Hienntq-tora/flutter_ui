@@ -43,7 +43,7 @@ class HomeScreenState extends State<HomeScreen> {
         !pagesWithHiddenBottomNav.contains(_currentIndex);
     return Scaffold(
       key: _navigatorKey,
-      appBar: _currentIndex == 0 ? homeAppBar(context) : null,
+      appBar: _currentIndex == 0 ? getAppbar(context,'home','') : null,
       body: PageView(
         controller: _pageController,
         children: tabs,

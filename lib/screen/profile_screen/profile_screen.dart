@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
 import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
-import 'package:study_ui_flutter_tora_2/header/header.dart';
+import 'package:study_ui_flutter_tora_2/header/current_appbar.dart';
 import 'package:study_ui_flutter_tora_2/models/profile_model.dart';
 import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
+import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
 import '../../components/text_componets.dart';
 import '../../models/payment_model.dart';
@@ -22,7 +23,7 @@ class ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Header(title: 'My Profile'),
+      appBar: const CurrentAppbar(title: 'My Profile'),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -121,8 +122,8 @@ class ProfileScreenState extends State<ProfileScreen> {
                                     Radio<int>(
                                       value: index + 1,
                                       groupValue: selectedCard,
-                                      focusColor: const Color(0xFFFA4A0C),
-                                      activeColor: const Color(0xFFFA4A0C),
+                                      focusColor: ThemeColors.colorIcon,
+                                      activeColor: ThemeColors.colorIcon,
                                       onChanged: (value) {
                                         setState(
                                           () {
@@ -182,7 +183,7 @@ class ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
           ),
-          BoxSize.sizedBoxWH(50),
+          BoxSize.sizedBoxWH(30),
           CustomButton(routerLink: RouterLinks.notUpdateProfile),
         ],
       ),

@@ -13,6 +13,7 @@ class CustomText extends Text {
     double? opacity,
     String? fontFamily,
     TextAlign? textAlign,
+    TextOverflow? overflow,
   }) : super(
           data,
           key: key,
@@ -24,6 +25,8 @@ class CustomText extends Text {
             height: lineHeight,
           ),
           textAlign: textAlign,
+          maxLines: maxLines,
+          overflow: overflow,
         );
 
   static CustomText titleHeader(String text) {
@@ -142,6 +145,34 @@ class CustomText extends Text {
           ),
         ],
       ),
+    );
+  }
+
+  static CustomText title34(String text) {
+    return CustomText(
+      text,
+      fontSize: 34,
+      fontFamily: 'SF Pro Text',
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
+    );
+  }
+  static CustomText descriptionX15(String text) {
+    return CustomText(
+      text,
+      fontSize: 15,
+      fontFamily: 'SF Pro Text',
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+      maxLines: 2,
+    );
+  }
+    static CustomText nameX15(String text) {
+    return CustomText(
+      text,
+      fontSize: 17,
+      fontFamily: 'SF Pro Text',
+      fontWeight: FontWeight.w500,
     );
   }
 }

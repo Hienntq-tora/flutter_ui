@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
 import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
 import 'package:study_ui_flutter_tora_2/components/text_componets.dart';
+import 'package:study_ui_flutter_tora_2/header/appbar.dart';
 import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
 import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
-import '../../header/header.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({Key? key}) : super(key: key);
 
   @override
-  _ProductDetailScreenState createState() => _ProductDetailScreenState();
+  ProductDetailScreenState createState() => ProductDetailScreenState();
 }
 
-class _ProductDetailScreenState extends State<ProductDetailScreen>
+class ProductDetailScreenState extends State<ProductDetailScreen>
     with SingleTickerProviderStateMixin {
   final List<String> items = [
     'assets/images/product_image/product_1.png',
@@ -47,7 +46,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Header(title: 'Product Detail'),
+      appBar: getAppbar(context, 'product detail', ''),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(left: 50, right: 50),
@@ -122,7 +121,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                 ),
               ),
               const SizedBox(height: 16),
-              Container(
+              SizedBox(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -4,17 +4,15 @@ import 'package:study_ui_flutter_tora_2/components/text_componets.dart';
 import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen.dart';
 import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
-class Header extends StatelessWidget implements PreferredSizeWidget {
-  const Header({
+class CurrentAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const CurrentAppbar({
     Key? key,
     required this.title,
     this.backPress,
-    this.color,
   }) : super(key: key);
 
   final String title;
   final VoidCallback? backPress;
-  final Color? color;
 
   @override
   Widget build(BuildContext context) {

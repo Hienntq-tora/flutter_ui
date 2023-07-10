@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:study_ui_flutter_tora_2/router/router.dart';
+import 'package:study_ui_flutter_tora_2/header/current_appbar.dart';
+import 'package:study_ui_flutter_tora_2/header/home_appbar.dart';
+import 'package:study_ui_flutter_tora_2/header/product_details_appbar.dart';
 
-AppBar homeAppBar(BuildContext context) {
-  return AppBar(
-    leadingWidth: 120,
-    backgroundColor: Colors.transparent,
-    elevation: 0,
-    leading: IconButton(
-      splashRadius: 24.0,
-      padding: EdgeInsets.zero,
-      onPressed: () {},
-      icon: Image.asset('assets/images/menu_appbar.png'),
-    ),
-    actions: [
-      Container(
-        margin: const EdgeInsets.only(right: 36.0),
-        child: IconButton(
-          splashRadius: 24.0,
-          icon: SvgPicture.asset('assets/images/svg/shopping-cart.svg'),
-          onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.order);
-          },
-        ),
-      ),
-    ],
-  );
+PreferredSizeWidget  getAppbar(BuildContext context, String currentPage, String titles) {
+  if (currentPage == 'home') {
+    return HomeAppbar(context);
+  } else if (currentPage == 'header') {
+    return CurrentAppbar(title: titles);
+  } else if (currentPage == 'product detail') {
+    return const ProductDetailAppbar();
+  } 
+  else {
+    return AppBar();
+  }
 }
+
+
+
+
+
