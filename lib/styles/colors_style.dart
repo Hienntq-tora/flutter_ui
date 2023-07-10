@@ -11,5 +11,6 @@ class ThemeColors {
   static const Color colorIconGrey = Color(0xFF9A9A9D);
   static const Color colorIcon = Color(0xFFFA4A0C);
   static const Color colorText = Color(0xFFFA4A0C);
+  static const Color colorTextButton = Color(0xFFFF460A);
   static const Color colorTabbar = Color(0xFFFA4A0C);
 }

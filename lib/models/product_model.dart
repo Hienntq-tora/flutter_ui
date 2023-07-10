@@ -76,26 +76,68 @@ List<Category> categories = [
             'assets/images/product_image/product_2.png',
           ]),
     ],
-  ),
+  ),  
   Category(
-    title: 'Sauce',
+    title: 'Snack1',
     productList: [
       ProductModel(
-          title: 'Espagnole sauce',
-          imagePath: 'assets/images/product_image/product_2.png',
+          title: 'Cookies',
+          imagePath: 'assets/images/product_image/product_1.png',
           number: 'N1,900',
           imageList: [
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
       ProductModel(
-          title: 'Tomato sauce',
-          imagePath: 'assets/images/product_image/product_1.png',
+          title: 'Cakes',
+          imagePath: 'assets/images/product_image/product_2.png',
           number: 'N2,300.99',
           imageList: [
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
     ],
-  ),
+  ),  
+  Category(
+    title: 'Snack2',
+    productList: [
+      ProductModel(
+          title: 'Cookies',
+          imagePath: 'assets/images/product_image/product_1.png',
+          number: 'N1,900',
+          imageList: [
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+      ProductModel(
+          title: 'Cakes',
+          imagePath: 'assets/images/product_image/product_2.png',
+          number: 'N2,300.99',
+          imageList: [
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+    ],
+  ),  
+  Category(
+    title: 'Snack3',
+    productList: [
+      ProductModel(
+          title: 'Cookies',
+          imagePath: 'assets/images/product_image/product_1.png',
+          number: 'N1,900',
+          imageList: [
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+      ProductModel(
+          title: 'Cakes',
+          imagePath: 'assets/images/product_image/product_2.png',
+          number: 'N2,300.99',
+          imageList: [
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+    ],
+  ),  
 ];

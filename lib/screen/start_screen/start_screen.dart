@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/screen/login_screen/login_page.dart';
+import 'package:study_ui_flutter_tora_2/screen/login_screen/login_screen.dart';
+import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
 class StartScreen extends StatefulWidget {
   static const String routeName = '/start';
@@ -15,7 +16,7 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  const Color(0xffFF460A),
+      backgroundColor: const Color(0xffFF460A),
       body: Padding(
         padding: const EdgeInsets.only(top: 56),
         child: Stack(
@@ -48,6 +49,7 @@ class _StartScreenState extends State<StartScreen> {
                         fontWeight: FontWeight.w800,
                         fontFamily: 'SF Pro Rounded',
                         height: 0.86,
+                        letterSpacing: -1.95,
                         color: Colors.white,
                       ),
                     ),
@@ -68,7 +70,8 @@ class _StartScreenState extends State<StartScreen> {
                           width: 262,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage('assets/images/start_image_2.png'),
+                              image:
+                                  AssetImage('assets/images/start_image_2.png'),
                             ),
                           ),
                         ),
@@ -81,7 +84,8 @@ class _StartScreenState extends State<StartScreen> {
                           transform: Matrix4.rotationZ(-3.1 * 0.0174533),
                           decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage('assets/images/start_image_1.png'),
+                              image:
+                                  AssetImage('assets/images/start_image_1.png'),
                             ),
                           ),
                         ),
@@ -98,7 +102,6 @@ class _StartScreenState extends State<StartScreen> {
                               ],
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
-                             
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(10),
@@ -122,30 +125,36 @@ class _StartScreenState extends State<StartScreen> {
                   ),
                 ),
                 Positioned(
-                left: 1,
-                right: 0,
-                bottom: 1,
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      minimumSize: const Size(314, 70),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()),
-                      );
-                    },
-                    child: const Text(
-                      'Get Started',
-                      style: TextStyle(fontSize: 17, color: Color(0xffFF460A)),
+                  left: 1,
+                  right: 0,
+                  bottom: 1,
+                  child: Container(
+                    alignment: Alignment.center,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        minimumSize: const Size(314, 70),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()),
+                        );
+                      },
+                      child: const Text(
+                        'Get starteed',
+                        style: TextStyle(
+                            fontFamily: 'SF Pro Text',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17,
+                            color: ThemeColors.colorTextButton),
+                      ),
                     ),
                   ),
                 ),
-                  ),
               ],
             ),
           ],

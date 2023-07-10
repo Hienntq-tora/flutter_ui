@@ -1,31 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
 import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
 import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
+import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
 class SignInForm extends StatelessWidget {
-   const SignInForm({Key? key}) : super(key: key);
+  const SignInForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.fromLTRB(50, 50, 50, 100),
+        padding: const EdgeInsets.fromLTRB(50, 42, 50, 36),
         alignment: Alignment.center,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 50,),
-            Container(
-              alignment: Alignment.center,
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 32),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Email Address",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    "Email address",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'SF Pro Text',
+                      fontSize: 15,
+                      color: Colors.black.withOpacity(0.4),
+                    ),
                   ),
-                  TextField(
+                  const TextField(
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontFamily: 'SF Pro Text',
+                      fontWeight: FontWeight.w600,
+                    ),
                     obscureText: false,
                     decoration: InputDecoration(
                       hintText: "Email address",
@@ -36,43 +46,59 @@ class SignInForm extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 26),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Text(
                     "Password",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15,
+                      fontFamily: 'SF Pro Text',
+                      color: Colors.black.withOpacity(0.4),
+                    ),
                   ),
-                  TextField(
+                  BoxSize.sizedBoxH9(),
+                  const TextField(
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontFamily: 'SF Pro Text',
+                      fontWeight: FontWeight.w600,
+                    ),
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: "Password",
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(
-                          color: Colors.grey,
+                          color: Colors.black,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Forgot Passcode?",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xffFF460A),
-                        fontWeight: FontWeight.w900),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 132,),
-            CustomButton(routerLink: RouterLinks.startLogin),
-            ],
+            const Padding(
+              padding: EdgeInsets.only(bottom: 90),
+              child: Text(
+                "Forgot passcode?",
+                style: TextStyle(
+                    fontSize: 17,
+                    color: ThemeColors.colorTextbold,
+                    fontFamily: 'SF Pro Text',
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: CustomButton(routerLink: RouterLinks.startLogin),
+            ),
+          ],
         ),
       ),
     );

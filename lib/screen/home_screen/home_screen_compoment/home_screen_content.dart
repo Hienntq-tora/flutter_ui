@@ -32,19 +32,27 @@ class HomeScreenContentState extends State<HomeScreenContent>
         initialIndex: selectedCategory,
         child: Column(
           children: [
-            TabBar(
-              controller: _tabController,
-              indicatorWeight: 2.0,
-              indicatorColor:ThemeColors.colorTabbar,
-              labelColor: ThemeColors.colorTabbar,
-              unselectedLabelColor:ThemeColors.colorGrey,
-              tabs: List.generate(categories.length, (index) {
-                return Tab(
-                  child: Text(
-                    categories[index].title,
-                  ),
-                );
-              }),
+            Padding(
+              padding: const EdgeInsets.only(left: 50),
+              child: TabBar(
+                controller: _tabController,
+                indicatorWeight: 2.0,
+                isScrollable: true,
+                indicatorColor:ThemeColors.colorTabbar,
+                labelColor: ThemeColors.colorTabbar,
+                unselectedLabelColor:ThemeColors.colorGrey,
+                tabs: List.generate(categories.length, (index) {
+                  return Tab(
+                    child:  Container(
+                      width: 75,
+                      alignment: Alignment.center,
+                      child: Text(
+                        categories[index].title,
+                      ),
+                    ),
+                  );
+                }),
+              ),
             ),
             Expanded(
               child: TabBarView(

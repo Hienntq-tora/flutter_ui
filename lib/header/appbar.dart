@@ -4,23 +4,25 @@ import 'package:study_ui_flutter_tora_2/router/router.dart';
 
 AppBar homeAppBar(BuildContext context) {
   return AppBar(
+    leadingWidth: 120,
     backgroundColor: Colors.transparent,
     elevation: 0,
     leading: IconButton(
       splashRadius: 24.0,
-      onPressed: () {
-      },
+      padding: EdgeInsets.zero,
+      onPressed: () {},
       icon: Image.asset('assets/images/menu_appbar.png'),
     ),
     actions: [
-      IconButton(
-        splashRadius: 24.0,
-        icon:  SvgPicture.asset(
-          'assets/images/svg/shopping-cart.svg'
+      Container(
+        margin: const EdgeInsets.only(right: 36.0),
+        child: IconButton(
+          splashRadius: 24.0,
+          icon: SvgPicture.asset('assets/images/svg/shopping-cart.svg'),
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.order);
+          },
         ),
-        onPressed: () {
-           Navigator.pushNamed(context, AppRoutes.order);
-        },
       ),
     ],
   );

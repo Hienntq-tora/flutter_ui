@@ -24,16 +24,17 @@ class ProductCard extends StatelessWidget {
             width: 220.0,
             height: 270.0,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 10,
-                    blurRadius: 30,
-                    offset: const Offset(0, 1),
-                  )
-                ]),
+              borderRadius: BorderRadius.circular(30.0),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                  color: Color.fromRGBO(57, 57, 57, 0.1),
+                  offset: Offset(0, 30),
+                  blurRadius: 60,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
           ),
           Container(
             alignment: Alignment.center,
@@ -61,7 +62,7 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 28.0),
+                const SizedBox(height: 22,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 28.0),
                   child: Text(
@@ -71,13 +72,14 @@ class ProductCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       color: ThemeColors.colorBlack,
-                      fontSize: 22.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
-                const SizedBox(height: 24.0),
+                const SizedBox(height: 15.0),
                 CustomText.productNum(product.number),
+                const SizedBox(height: 39.0),
               ],
             ),
           )

@@ -11,7 +11,10 @@ class BodyHome extends StatelessWidget {
     return const SingleChildScrollView(
       child: Column(
         children: [
-          HomeScreenSearch(),
+          Padding(
+            padding: EdgeInsets.only(left: 50),
+            child: HomeScreenSearch(),
+          ),
           SizedBox(height: 18.0),
           HomeScreenContent(),
         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:study_ui_flutter_tora_2/screen/login_screen/login_compoment/sign_in_form.dart';
 import 'package:study_ui_flutter_tora_2/screen/login_screen/login_compoment/sign_up_form.dart';
+import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen>
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 280,
+            height: 382,
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen>
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.8),
+                  color: Colors.grey.withOpacity(0.6),
                   spreadRadius: 0,
                   blurRadius: 30.0,
                   offset: const Offset(0, -4),
@@ -50,23 +51,22 @@ class _LoginScreenState extends State<LoginScreen>
               ],
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 50),
+                  padding: const EdgeInsets.only(top: 128, bottom: 55),
                   child: SizedBox(
                     child: Image.asset(
                       'assets/images/logo_200x200.png',
-                      width: 150,
-                      height: 150,
+                      width: 131,
+                      height: 162,
                     ),
                   ),
                 ),
                 Expanded(
                   child: TabBar(
                     indicatorSize: TabBarIndicatorSize.label,
-                    indicatorColor: Colors.orange,
-                    labelColor: Colors.orange,
+                    indicatorColor: ThemeColors.colorTabbar,
+                    labelColor: Colors.black,
                     controller: _tabController,
                     tabs: const <Widget>[
                       Tab(
@@ -75,7 +75,9 @@ class _LoginScreenState extends State<LoginScreen>
                           child: Text(
                             'Login',
                             style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.w600),
+                                fontSize: 18,
+                                fontFamily: ' SF Pro Text',
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                       ),
@@ -83,9 +85,11 @@ class _LoginScreenState extends State<LoginScreen>
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 40),
                           child: Text(
-                            'Sign-Up',
+                            'Sign-up',
                             style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.w600),
+                                fontSize: 18,
+                                fontFamily: ' SF Pro Text',
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                       ),

@@ -68,9 +68,9 @@ class ProfileScreenState extends State<ProfileScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   CustomText.nameProfile(profile.name),
-                                  BoxSize.sizedBoxH10(),
+                                  BoxSize.sizedBoxH9(),
                                   CustomText.emailProflie(profile.email),
-                                  BoxSize.sizedBoxH10(),
+                                  BoxSize.sizedBoxH9(),
                                   CustomText.descriptionProfile(
                                       profile.description),
                                 ],
@@ -121,6 +121,8 @@ class ProfileScreenState extends State<ProfileScreen> {
                                     Radio<int>(
                                       value: index + 1,
                                       groupValue: selectedCard,
+                                      focusColor: const Color(0xFFFA4A0C),
+                                      activeColor: const Color(0xFFFA4A0C),
                                       onChanged: (value) {
                                         setState(
                                           () {

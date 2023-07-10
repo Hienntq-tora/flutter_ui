@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen_compoment/home_screen_body.dart';
+import 'package:study_ui_flutter_tora_2/screen/product_detail/product_detail_screen.dart';
 import 'package:study_ui_flutter_tora_2/screen/profile_screen/profile_screen.dart';
 import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 import '../../header/appbar.dart';
@@ -21,19 +22,14 @@ class HomeScreenState extends State<HomeScreen> {
   final PageController _pageController = PageController(initialPage: 0);
   List<Widget> tabs = [
     const BodyHome(),
-    Center(
-      child: Container(
-        alignment: Alignment.center,
-        child: const Text('Favorite'),
-      ),
-    ),
+    const ProductDetailScreen(),
     const ProfileScreen(),
     const HistoryScreen(),
   ];
 
   bool hideBottomNavigationBarItems = false;
 
-  List<int> pagesWithHiddenBottomNav = [2,3];
+  List<int> pagesWithHiddenBottomNav = [1,2,3];
 
   @override
   void dispose() {

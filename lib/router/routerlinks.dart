@@ -21,7 +21,7 @@ class RouterLinks {
     linkRouter:AppRoutes.history,
   );
   static final RouterLinks notUpdateProfile = RouterLinks(
-    title: 'Update',
+    title: 'Updatet',
     linkRouter:AppRoutes.profile,
   );
 
@@ -33,6 +33,10 @@ class RouterLinks {
   static final RouterLinks startLogin = RouterLinks(
     title: 'Login',
     linkRouter: AppRoutes.home,
+  );
+  static final RouterLinks productDetail = RouterLinks(
+    title: 'Add to cart',
+    linkRouter: AppRoutes.productdetails,
   );
 
   static final RouterLinks signUp = RouterLinks(

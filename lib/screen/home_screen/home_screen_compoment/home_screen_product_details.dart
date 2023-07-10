@@ -39,9 +39,6 @@ class ProductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const SizedBox(
-          width: 26,
-        ),
         Expanded(
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -50,7 +47,7 @@ class ProductDetailsState extends State<ProductDetails> {
               final product =
                   categories[widget.currentIndex].productList[index];
               return Padding(
-                padding: const EdgeInsets.only(left: 36),
+                padding: const EdgeInsets.only(left: 34),
                 child: GestureDetector(
                   child: Container(
                     padding: const EdgeInsets.all(16),
@@ -61,9 +58,7 @@ class ProductDetailsState extends State<ProductDetails> {
             },
           ),
         ),
-        const SizedBox(
-          width: 26,
-        ),
+        
       ],
     );
   }

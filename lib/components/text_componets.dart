@@ -52,6 +52,15 @@ class CustomText extends Text {
       color: Colors.black,
     );
   }
+  static CustomText titleDetails(String text) {
+    return CustomText(
+      text,
+      fontSize: 17,
+      fontFamily: 'SF Pro Text',
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
+    );
+  }
 
   static CustomText nameProfile(String text) {
     return CustomText(
