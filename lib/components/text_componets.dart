@@ -175,4 +175,5 @@ class CustomText extends Text {
       fontWeight: FontWeight.w500,
     );
   }
+  
 }

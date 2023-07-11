@@ -17,7 +17,7 @@ class ProductDetailAppbar extends StatelessWidget implements PreferredSizeWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leadingWidth: 120,
+      leadingWidth: 90,
       backgroundColor: Colors.transparent,
       elevation: 0,
       leading: Align(

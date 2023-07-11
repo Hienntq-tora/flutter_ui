@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:study_ui_flutter_tora_2/screen/login_screen/login_screen.dart';
 import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
+import '../profile_screen/my_profile/my_proflie_screen.dart';
+
 class StartScreen extends StatefulWidget {
   static const String routeName = '/start';
   const StartScreen({
@@ -124,34 +126,29 @@ class _StartScreenState extends State<StartScreen> {
                     ],
                   ),
                 ),
-                Positioned(
-                  left: 1,
-                  right: 0,
-                  bottom: 1,
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(30)),
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        minimumSize: const Size(314, 70),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen()),
-                        );
-                      },
-                      child: const Text(
-                        'Get starteed',
-                        style: TextStyle(
-                            fontFamily: 'SF Pro Text',
-                            fontWeight: FontWeight.w600,
-                            fontSize: 17,
-                            color: ThemeColors.colorTextButton),
-                      ),
+                Container(
+                  alignment: Alignment.center,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      minimumSize: const Size(314, 70),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                      );
+                    },
+                    child: const Text(
+                      'Get starteed',
+                      style: TextStyle(
+                          fontFamily: 'SF Pro Text',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17,
+                          color: ThemeColors.colorTextButton),
                     ),
                   ),
                 ),

@@ -37,6 +37,10 @@ class RouterLinks {
     title: 'Updatet',
     linkRouter:AppRoutes.profile,
   );
+  static final RouterLinks myProfile = RouterLinks(
+    title: 'Update',
+    linkRouter:AppRoutes.profile,
+  );
 
   static final RouterLinks getStarted = RouterLinks(
     title: 'Get Started',
@@ -45,7 +49,7 @@ class RouterLinks {
 
   static final RouterLinks productDetail = RouterLinks(
     title: 'Add to cart',
-    linkRouter: AppRoutes.productdetails,
+    linkRouter: AppRoutes.orderCard,
   );
 
  static final RouterLinks startLogin = RouterLinks(

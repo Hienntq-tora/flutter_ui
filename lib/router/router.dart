@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_ui_flutter_tora_2/screen/checkout_screen/checkout_payment/checkout_payment.dart';
+import 'package:study_ui_flutter_tora_2/screen/profile_screen/my_profile/my_proflie_screen.dart';
 
 import '../screen/card_screen/order_card.dart';
 import '../screen/checkout_screen/checkout_delivery_screen.dart';
@@ -23,6 +24,7 @@ class AppRoutes {
   static const String checkoutDelivery = '/checkoutDelivery';
   static const String checkoutPayment = '/checkoutPayment';
   static const String orderCard = '/orderCard';
+  static const String myProfile = '/myProfile';
   static const String login = '/login';
 
   static Map<String, WidgetBuilder> get routes {
@@ -37,6 +39,7 @@ class AppRoutes {
       checkoutPayment: (context) => const CheckoutpaymentScreen(),
       orderCard: (context) => const OrderCard(),
       productdetails: (context) => const ProductDetailScreen(),
+      myProfile: (context) => const MyProfileScreen(),
     };
   }
 }

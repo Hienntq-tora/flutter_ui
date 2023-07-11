@@ -18,50 +18,40 @@ class CurrentAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: ThemeColors.colorBackgroup,
-      leading: Align(
-        alignment: Alignment.center,
-        child: IconButton(
-          icon: SvgPicture.asset(
-          'assets/images/svg/chevron-left.svg'
-        ),
-          onPressed: () {
-            if (backPress != null) {
-              backPress!();
-            } else {
-              Navigator.of(context).pushReplacement(
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      const HomeScreen(),
-                  transitionsBuilder:
-                      (context, animation, secondaryAnimation, child) {
-                    return SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(-1.0, 0.0),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    );
-                  },
-                ),
-              );
-            }
-          },
-        ),
+      elevation: 0,
+      leading: IconButton(
+        icon: SvgPicture.asset('assets/images/svg/chevron-left.svg'),
+        onPressed: () {
+          if (backPress != null) {
+            backPress!();
+          } else {
+            Navigator.of(context).pushReplacement(
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    const HomeScreen(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(-1.0, 0.0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: child,
+                  );
+                },
+              ),
+            );
+          }
+        },
       ),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Center(child: CustomText.titleHeader(title)),
-          ),
-          const SizedBox(
-            width: 50,
-          ),
-        ],
-      ),
+      title: CustomText.titleHeader(title),
+      centerTitle: true,
     );
   }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
+
+
+

@@ -9,6 +9,7 @@ import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
 import '../../components/text_componets.dart';
 import '../../models/payment_model.dart';
+import '../../router/router.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -35,52 +36,57 @@ class ProfileScreenState extends State<ProfileScreen> {
               children: [
                 CustomText.titleCard("Information"),
                 BoxSize.sizedBoxH20(),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.03),
-                        offset: Offset(0, 10),
-                        blurRadius: 40,
-                        spreadRadius: 0,
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Image.asset(
-                              profile.imagePath,
-                              height: 60,
-                              width: 60,
-                              fit: BoxFit.cover,
-                            ),
-                            BoxSize.sizedBoxW20(),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  CustomText.nameProfile(profile.name),
-                                  BoxSize.sizedBoxH9(),
-                                  CustomText.emailProflie(profile.email),
-                                  BoxSize.sizedBoxH9(),
-                                  CustomText.descriptionProfile(
-                                      profile.description),
-                                ],
-                              ),
-                            ),
-                          ],
+                GestureDetector(
+                  onDoubleTap: (){
+                    Navigator.pushNamed(context, AppRoutes.myProfile);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.03),
+                          offset: Offset(0, 10),
+                          blurRadius: 40,
+                          spreadRadius: 0,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Image.asset(
+                                profile.imagePath,
+                                height: 60,
+                                width: 60,
+                                fit: BoxFit.cover,
+                              ),
+                              BoxSize.sizedBoxW20(),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    CustomText.nameProfile(profile.name),
+                                    BoxSize.sizedBoxH9(),
+                                    CustomText.emailProflie(profile.email),
+                                    BoxSize.sizedBoxH9(),
+                                    CustomText.descriptionProfile(
+                                        profile.description),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
