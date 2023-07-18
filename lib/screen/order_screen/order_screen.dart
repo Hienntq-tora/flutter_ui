@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/text_componets.dart';
-import 'package:study_ui_flutter_tora_2/header/appbar.dart';
-import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
+import '../../components/box_componets.dart';
+import '../../components/button_componets.dart';
+import '../../components/text_componets.dart';
+import '../../header/appbar.dart';
+import '../../router/routerlinks.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
@@ -11,15 +11,15 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppbar(context, 'header', 'Orders'),
-       body: Center(
+      appBar: getAppbar(context, 'header', 'Orders', ''),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
+          children: <Widget>[
             BoxSize.sizedBoxH10(),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(right: 12),
                   child: SizedBox(
@@ -30,14 +30,16 @@ class OrderScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                CustomText.notFoundText( 'No orders yet'),
-                CustomText.notFoundDesText( 'Hit the orange button down below to Create an order'),
+                CustomText.notFoundText('No orders yet'),
+                CustomText.notFoundDesText(
+                    'Hit the orange button down below to Create an order'),
               ],
             ),
             BoxSize.sizedBoxH10(),
             CustomButton(routerLink: RouterLinks.notFoundOrder),
-           ],
+          ],
         ),
-      ),);
+      ),
+    );
   }
 }

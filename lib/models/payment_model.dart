@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
 
 class PaymentItemModel {
-  final String imageAsset;
-  final String title;
-  final Color color;
-  final String? background;
-
   PaymentItemModel({
     required this.imageAsset,
     required this.title,
     required this.color,
     this.background,
   });
+  final String imageAsset;
+  final String title;
+  final Color color;
+  final String? background;
 }
 
-List<PaymentItemModel> dataList = [
+List<PaymentItemModel> dataList = <PaymentItemModel>[
   PaymentItemModel(
     imageAsset: 'assets/images/svg/bi_credit-card-2-front-fill.svg',
     title: 'Card',
     color: Colors.orange,
-
   ),
   PaymentItemModel(
     imageAsset: 'assets/images/svg/dashicons_bank.svg',
     title: 'Bank account',
     color: const Color(0xFFEB4796),
     background: 'linear-gradient(0deg, #EB4796 0%, #EB4796 100%), #C4C4C4',
-
   ),
   PaymentItemModel(
     imageAsset: 'assets/images/svg/cib_paypal.svg',
@@ -36,7 +33,7 @@ List<PaymentItemModel> dataList = [
   ),
 ];
 
-List<PaymentItemModel> dataListCheckout = [
+List<PaymentItemModel> dataListCheckout = <PaymentItemModel>[
   PaymentItemModel(
     imageAsset: 'assets/images/svg/bi_credit-card-2-front-fill.svg',
     title: 'Card',

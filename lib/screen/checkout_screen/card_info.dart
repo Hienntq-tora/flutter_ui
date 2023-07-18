@@ -18,16 +18,16 @@ class CardInfo extends StatelessWidget {
         itemCount: infotPaymentList.length,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          final items = infotPaymentList[index];
-          final isLastItem = index == infotPaymentList.length - 1;
+        itemBuilder: (BuildContext context, int index) {
+          final PaymentInfoModel items = infotPaymentList[index];
+          final bool isLastItem = index == infotPaymentList.length - 1;
           return Column(
-            children: [
+            children: <Widget>[
               Row(
-                children: [
+                children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       CustomText.nameX15(items.name),
                       if (!isLastItem)
                         Container(
@@ -41,13 +41,12 @@ class CardInfo extends StatelessWidget {
                 ],
               ),
               Row(
-                children: [
+                children: <Widget>[
                   Container(
                     alignment: Alignment.center,
                     width: 300,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
+                      children: <Widget>[
                         Text(
                           items.description,
                           maxLines: 2,
@@ -69,10 +68,10 @@ class CardInfo extends StatelessWidget {
                 ],
               ),
               Row(
-                children: [
+                children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       CustomText.descriptionX15(items.phone),
                       if (!isLastItem)
                         Container(

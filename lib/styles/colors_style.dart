@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ThemeColors {
-  static const Color colorMain = Color(0xFFFF4B3A);
+  static const Color colorMain = Color(0xFFFA4A0C);
   static const Color colorTextbold = Color(0xFFFA4A0C);
   static const Color colorBg = Color(0xFFF2F2F2);
   static const Color colorGrey = Color(0xFF9A9A9D);
-  static const Color colorBlack= Color(0xFF000000);
+  static const Color colorBlack = Color(0xFF000000);
   static const Color colorBackgroup = Color(0xFFF2F2F2);
   static const Color colorBgCard = Color(0xFFFFFFFF);
   static const Color colorIconGrey = Color(0xFF9A9A9D);

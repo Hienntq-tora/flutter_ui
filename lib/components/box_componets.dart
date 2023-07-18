@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 
 class BoxSize extends SizedBox {
   const BoxSize({
-    double? width, 
-    double? height, 
-    Key? key,
-    double? size,
-    })
-      : super(
-          key: key,
-          width: width,
-          height: height,
-        );
+    super.width,
+    super.height,
+    super.key,
+  });
   static SizedBox sizedBoxWH(double size) {
-    return SizedBox(width: size,height: size,);
+    return SizedBox(
+      width: size,
+      height: size,
+    );
   }
 
   static SizedBox sizedBoxW8() {
@@ -23,6 +20,7 @@ class BoxSize extends SizedBox {
   static SizedBox sizedBoxH8() {
     return const SizedBox(height: 8);
   }
+
   static SizedBox sizedBoxW9() {
     return const SizedBox(width: 9);
   }
@@ -30,6 +28,7 @@ class BoxSize extends SizedBox {
   static SizedBox sizedBoxH9() {
     return const SizedBox(height: 9);
   }
+
   static SizedBox sizedBoxW10() {
     return const SizedBox(width: 10);
   }
@@ -69,7 +68,8 @@ class BoxSize extends SizedBox {
   static SizedBox sizedBoxH30() {
     return const SizedBox(height: 30);
   }
-   static SizedBox sizedBoxH46() {
+
+  static SizedBox sizedBoxH46() {
     return const SizedBox(height: 46);
   }
 }

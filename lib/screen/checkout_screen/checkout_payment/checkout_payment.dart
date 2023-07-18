@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/text_componets.dart';
-import 'package:study_ui_flutter_tora_2/header/appbar.dart';
-import 'package:study_ui_flutter_tora_2/models/payment_model.dart';
-import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
+import '../../../components/box_componets.dart';
+import '../../../components/button_componets.dart';
+import '../../../components/text_componets.dart';
+import '../../../header/appbar.dart';
+import '../../../models/payment_model.dart';
+import '../../../styles/colors_style.dart';
+
+import 'dialog_confirm_paymet.dart';
 
 class CheckoutpaymentScreen extends StatefulWidget {
-  const CheckoutpaymentScreen({Key? key}) : super(key: key);
+  const CheckoutpaymentScreen({super.key});
 
   @override
   CheckoutpaymentScreenState createState() => CheckoutpaymentScreenState();
@@ -22,7 +23,7 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppbar(context, 'header', 'Checkout'),
+      appBar: getAppbar(context, 'header', 'Checkout', ''),
       backgroundColor: ThemeColors.colorBg,
       body: SingleChildScrollView(
         child: Padding(
@@ -30,21 +31,21 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomText.title34("Payment"),
+            children: <Widget>[
+              CustomText.title34('Payment'),
               BoxSize.sizedBoxH20(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CustomText.titleCard("Payment Method"),
+                    children: <Widget>[
+                      CustomText.titleCard('Payment Method'),
                       const SizedBox(
                         width: 100,
                       ),
                       const Text(
-                        "change",
+                        'change',
                         style: TextStyle(
                           fontSize: 15,
                           fontFamily: 'SF Pro Text',
@@ -65,21 +66,21 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                         padding: const EdgeInsets.only(top: 10.0),
                         child: Column(
                           children: dataListCheckout.asMap().entries.map(
-                            (item) {
-                              final index = item.key;
-                              final items = item.value;
-                              final isLastItem =
+                            (MapEntry<int, PaymentItemModel> item) {
+                              final int index = item.key;
+                              final PaymentItemModel items = item.value;
+                              final bool isLastItem =
                                   index == dataListCheckout.length - 1;
                               return Column(
-                                children: [
+                                children: <Widget>[
                                   Row(
-                                    children: [
+                                    children: <Widget>[
                                       Radio<int>(
                                         value: index + 1,
                                         groupValue: selectedCard,
                                         focusColor: ThemeColors.colorIcon,
                                         activeColor: ThemeColors.colorIcon,
-                                        onChanged: (value) {
+                                        onChanged: (int? value) {
                                           setState(
                                             () {
                                               selectedCard = value!;
@@ -90,9 +91,9 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
+                                        children: <Widget>[
                                           Row(
-                                            children: [
+                                            children: <Widget>[
                                               Container(
                                                 height: 40,
                                                 width: 40,
@@ -102,7 +103,6 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                                                       BorderRadius.circular(10),
                                                 ),
                                                 child: Align(
-                                                  alignment: Alignment.center,
                                                   child: SvgPicture.asset(
                                                     items.imageAsset,
                                                   ),
@@ -140,8 +140,8 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
               BoxSize.sizedBoxH20(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomText.titleCard("Delivery method."),
+                children: <Widget>[
+                  CustomText.titleCard('Delivery method.'),
                   BoxSize.sizedBoxH20(),
                   Container(
                     decoration: BoxDecoration(
@@ -151,15 +151,15 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(21, 31, 10, 25),
                       child: Column(
-                        children: [
+                        children: <Widget>[
                           Row(
-                            children: [
+                            children: <Widget>[
                               Radio<int>(
                                 value: 0,
                                 groupValue: selectedCard2,
                                 focusColor: ThemeColors.colorIcon,
                                 activeColor: ThemeColors.colorIcon,
-                                onChanged: (value) {
+                                onChanged: (int? value) {
                                   setState(() {
                                     selectedCard2 = value!;
                                   });
@@ -167,9 +167,9 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+                                children: <Widget>[
                                   Row(
-                                    children: [
+                                    children: <Widget>[
                                       CustomText.titleCard('Door delivery'),
                                     ],
                                   ),
@@ -186,13 +186,13 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                           ),
                           BoxSize.sizedBoxH10(),
                           Row(
-                            children: [
+                            children: <Widget>[
                               Radio<int>(
                                 value: 1,
                                 groupValue: selectedCard2,
                                 focusColor: ThemeColors.colorIcon,
                                 activeColor: ThemeColors.colorIcon,
-                                onChanged: (value) {
+                                onChanged: (int? value) {
                                   setState(() {
                                     selectedCard2 = value!;
                                   });
@@ -200,9 +200,9 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+                                children: <Widget>[
                                   Row(
-                                    children: [
+                                    children: <Widget>[
                                       CustomText.titleCard('Pick up'),
                                     ],
                                   ),
@@ -219,9 +219,9 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
               BoxSize.sizedBoxH20(),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: <Widget>[
                   Text(
-                    "Total",
+                    'Total',
                     style: TextStyle(
                       fontSize: 17,
                       fontFamily: 'SF Pro Text',
@@ -232,7 +232,7 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                     width: 150,
                   ),
                   Text(
-                    "23.000",
+                    '23.000',
                     style: TextStyle(
                       fontFamily: 'SF Pro Text',
                       fontSize: 22,
@@ -242,7 +242,11 @@ class CheckoutpaymentScreenState extends State<CheckoutpaymentScreen> {
                 ],
               ),
               BoxSize.sizedBoxH30(),
-              CustomButton(routerLink: RouterLinks.checkoutPlayment),
+              CustomButton(
+                onOpenModal: () {
+                  DialogConfirmPayment.showConfirmationDialog(context);
+                },
+              ),
               BoxSize.sizedBoxH20(),
             ],
           ),

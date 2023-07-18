@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/models/product_model.dart';
-import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen_compoment/home_screen_product_details.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
+
+import '../../../models/product_model.dart';
+import '../../../styles/colors_style.dart';
+import 'home_screen_product_details.dart';
 
 class HomeScreenContent extends StatefulWidget {
-  const HomeScreenContent({Key? key}) : super(key: key);
+  const HomeScreenContent({super.key});
 
   @override
   HomeScreenContentState createState() => HomeScreenContentState();
@@ -19,7 +20,8 @@ class HomeScreenContentState extends State<HomeScreenContent>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: categories.length, initialIndex: selectedCategory, vsync: this);
+    _tabController = TabController(
+        length: categories.length, initialIndex: selectedCategory, vsync: this);
   }
 
   @override
@@ -31,19 +33,18 @@ class HomeScreenContentState extends State<HomeScreenContent>
         length: categories.length,
         initialIndex: selectedCategory,
         child: Column(
-          children: [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(left: 50),
               child: TabBar(
                 controller: _tabController,
-                indicatorWeight: 2.0,
                 isScrollable: true,
-                indicatorColor:ThemeColors.colorTabbar,
+                indicatorColor: ThemeColors.colorTabbar,
                 labelColor: ThemeColors.colorTabbar,
-                unselectedLabelColor:ThemeColors.colorGrey,
-                tabs: List.generate(categories.length, (index) {
+                unselectedLabelColor: ThemeColors.colorGrey,
+                tabs: List<Widget>.generate(categories.length, (int index) {
                   return Tab(
-                    child:  Container(
+                    child: Container(
                       width: 75,
                       alignment: Alignment.center,
                       child: Text(
@@ -57,7 +58,7 @@ class HomeScreenContentState extends State<HomeScreenContent>
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: List.generate(categories.length, (index) {
+                children: List<Widget>.generate(categories.length, (int index) {
                   return ProductDetails(currentIndex: index);
                 }),
               ),

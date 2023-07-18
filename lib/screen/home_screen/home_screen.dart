@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen_compoment/home_screen_body.dart';
-import 'package:study_ui_flutter_tora_2/screen/product_detail/product_detail_screen.dart';
-import 'package:study_ui_flutter_tora_2/screen/profile_screen/profile_screen.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
+
 import '../../header/appbar.dart';
+import '../../styles/colors_style.dart';
 import '../history_screen/history_screen.dart';
+import '../product_detail/product_detail_screen.dart';
+import '../profile_screen/profile_screen.dart';
+import 'home_screen_compoment/home_screen_body.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
   static const String id = 'home';
-
-  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   HomeScreenState createState() => HomeScreenState();
@@ -19,8 +19,8 @@ class HomeScreenState extends State<HomeScreen> {
   late final GlobalKey<NavigatorState> _navigatorKey =
       GlobalKey<NavigatorState>();
   int _currentIndex = 0;
-  final PageController _pageController = PageController(initialPage: 0);
-  List<Widget> tabs = [
+  final PageController _pageController = PageController();
+  List<Widget> tabs = <Widget>[
     const BodyHome(),
     const ProductDetailScreen(),
     const ProfileScreen(),
@@ -29,7 +29,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   bool hideBottomNavigationBarItems = false;
 
-  List<int> pagesWithHiddenBottomNav = [1,2,3];
+  List<int> pagesWithHiddenBottomNav = <int>[1, 2, 3];
 
   @override
   void dispose() {
@@ -43,11 +43,11 @@ class HomeScreenState extends State<HomeScreen> {
         !pagesWithHiddenBottomNav.contains(_currentIndex);
     return Scaffold(
       key: _navigatorKey,
-      appBar: _currentIndex == 0 ? getAppbar(context,'home','') : null,
+      appBar: _currentIndex == 0 ? getAppbar(context, 'home', '', '') : null,
       body: PageView(
         controller: _pageController,
         children: tabs,
-        onPageChanged: (index) {
+        onPageChanged: (int index) {
           setState(() {
             _currentIndex = index;
           });
@@ -60,7 +60,7 @@ class HomeScreenState extends State<HomeScreen> {
               elevation: 0,
               currentIndex: _currentIndex,
               iconSize: 31.0,
-              items: const [
+              items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home_outlined,
@@ -106,7 +106,7 @@ class HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
-              onTap: (index) {
+              onTap: (int index) {
                 setState(
                   () {
                     _currentIndex = index;

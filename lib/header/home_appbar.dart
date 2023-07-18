@@ -1,22 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:study_ui_flutter_tora_2/router/router.dart';
+import '../router/router.dart';
 
 class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppbar(BuildContext context, {super.key});
+  const HomeAppbar({super.key});
   @override
   Widget build(BuildContext context) {
     return AppBar(
       leadingWidth: 120,
       backgroundColor: Colors.transparent,
       elevation: 0,
-      leading: IconButton(
-        splashRadius: 24.0,
-        padding: EdgeInsets.zero,
-        onPressed: () {},
-        icon: Image.asset('assets/images/menu_appbar.png'),
+      leading: Padding(
+        padding: const EdgeInsets.only(top: 10.0, left: 30),
+        child: Container(
+          alignment: Alignment.centerLeft,
+          child: IconButton(
+            splashRadius: 24.0,
+            padding: EdgeInsets.zero,
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.menu);
+            },
+            icon: Image.asset('assets/images/menu_appbar.png'),
+          ),
+        ),
       ),
-      actions: [
+      actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 36.0),
           child: IconButton(
@@ -30,6 +38,7 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
       ],
     );
   }
- @override
+
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

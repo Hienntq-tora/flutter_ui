@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
-import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
+import '../../../components/button_componets.dart';
+import '../../../router/routerlinks.dart';
 
 class SignUpForm extends StatelessWidget {
-  const SignUpForm({Key? key}): super(key: key);
+  const SignUpForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +13,23 @@ class SignUpForm extends StatelessWidget {
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox(height: 50,),
+          children: <Widget>[
+            const SizedBox(
+              height: 50,
+            ),
             Container(
               alignment: Alignment.center,
               child: const Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
-                    "Email",
+                    'Email',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                   TextField(
-                    obscureText: false,
                     decoration: InputDecoration(
-                      hintText: "Email",
+                      hintText: 'Email',
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -40,13 +41,12 @@ class SignUpForm extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    "User name",
+                    'User name',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                   TextField(
-                    obscureText: false,
                     decoration: InputDecoration(
-                      hintText: "User Name",
+                      hintText: 'User Name',
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -58,13 +58,13 @@ class SignUpForm extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    "Password",
+                    'Password',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "Password",
+                      hintText: 'Password',
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -76,13 +76,13 @@ class SignUpForm extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    "confirm  Password",
+                    'confirm  Password',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "confirm Password",
+                      hintText: 'confirm Password',
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -99,8 +99,11 @@ class SignUpForm extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 132,),
-           CustomButton(routerLink: RouterLinks.signUp),],
+            const SizedBox(
+              height: 132,
+            ),
+            CustomButton(routerLink: RouterLinks.signUp),
+          ],
         ),
       ),
     );

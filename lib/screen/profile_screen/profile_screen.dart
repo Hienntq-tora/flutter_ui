@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
-import 'package:study_ui_flutter_tora_2/header/current_appbar.dart';
-import 'package:study_ui_flutter_tora_2/models/profile_model.dart';
-import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
+import '../../components/box_componets.dart';
+import '../../components/button_componets.dart';
 import '../../components/text_componets.dart';
+import '../../header/appbar.dart';
 import '../../models/payment_model.dart';
+import '../../models/profile_model.dart';
 import '../../router/router.dart';
+import '../../router/routerlinks.dart';
+import '../../styles/colors_style.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   @override
   ProfileScreenState createState() => ProfileScreenState();
@@ -24,32 +24,30 @@ class ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CurrentAppbar(title: 'My Profile'),
+      appBar: getAppbar(context, 'header', 'My profile', ''),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
+        children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 12, left: 50, right: 50),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText.titleCard("Information"),
+              children: <Widget>[
+                CustomText.titleCard('Information'),
                 BoxSize.sizedBoxH20(),
                 GestureDetector(
-                  onDoubleTap: (){
+                  onDoubleTap: () {
                     Navigator.pushNamed(context, AppRoutes.myProfile);
                   },
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
+                      boxShadow: const <BoxShadow>[
                         BoxShadow(
                           color: Color.fromRGBO(0, 0, 0, 0.03),
                           offset: Offset(0, 10),
                           blurRadius: 40,
-                          spreadRadius: 0,
                         ),
                       ],
                     ),
@@ -59,7 +57,6 @@ class ProfileScreenState extends State<ProfileScreen> {
                         Padding(
                           padding: const EdgeInsets.all(20),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Image.asset(
@@ -96,19 +93,18 @@ class ProfileScreenState extends State<ProfileScreen> {
             padding: const EdgeInsets.only(left: 50, right: 50),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText.titleCard("Payment Method"),
+              children: <Widget>[
+                CustomText.titleCard('Payment Method'),
                 BoxSize.sizedBoxH20(),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: const [
+                    boxShadow: const <BoxShadow>[
                       BoxShadow(
                         color: Color.fromRGBO(0, 0, 0, 0.03),
                         offset: Offset(0, 10),
                         blurRadius: 40,
-                        spreadRadius: 0,
                       ),
                     ],
                   ),
@@ -117,20 +113,21 @@ class ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.only(top: 10.0),
                       child: Column(
                         children: dataList.asMap().entries.map(
-                          (item) {
-                            final index = item.key;
-                            final items = item.value;
-                            final isLastItem = index == dataList.length - 1;
+                          (MapEntry<int, PaymentItemModel> item) {
+                            final int index = item.key;
+                            final PaymentItemModel items = item.value;
+                            final bool isLastItem =
+                                index == dataList.length - 1;
                             return Column(
-                              children: [
+                              children: <Widget>[
                                 Row(
-                                  children: [
+                                  children: <Widget>[
                                     Radio<int>(
                                       value: index + 1,
                                       groupValue: selectedCard,
                                       focusColor: ThemeColors.colorIcon,
                                       activeColor: ThemeColors.colorIcon,
-                                      onChanged: (value) {
+                                      onChanged: (int? value) {
                                         setState(
                                           () {
                                             selectedCard = value!;
@@ -141,9 +138,9 @@ class ProfileScreenState extends State<ProfileScreen> {
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: [
+                                      children: <Widget>[
                                         Row(
-                                          children: [
+                                          children: <Widget>[
                                             Container(
                                               height: 40,
                                               width: 40,
@@ -153,14 +150,14 @@ class ProfileScreenState extends State<ProfileScreen> {
                                                     BorderRadius.circular(10),
                                               ),
                                               child: Align(
-                                                alignment: Alignment.center,
                                                 child: SvgPicture.asset(
                                                   items.imageAsset,
                                                 ),
                                               ),
                                             ),
                                             BoxSize.sizedBoxW10(),
-                                            CustomText.titleProfile(items.title),
+                                            CustomText.titleProfile(
+                                                items.title),
                                             BoxSize.sizedBoxH20(),
                                           ],
                                         ),

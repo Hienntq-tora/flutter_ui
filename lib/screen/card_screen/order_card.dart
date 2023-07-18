@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/header/appbar.dart';
 
 import '../../components/box_componets.dart';
 import '../../components/button_componets.dart';
+import '../../header/appbar.dart';
 import '../../router/routerlinks.dart';
 import 'card_items/card_items.dart';
 
 class OrderCard extends StatelessWidget {
-  const OrderCard({Key? key}) : super(key: key);
+  const OrderCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppbar(context, 'header', 'Card'),
+      appBar: getAppbar(context, 'header', 'Card', ''),
       body: Padding(
-        padding: const EdgeInsets.only(top: 61, left: 30 , right: 30 ),
+        padding: const EdgeInsets.only(top: 61, left: 30, right: 30),
         child: Column(
-          children: [
+          children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: <Widget>[
                 ClipOval(
                   child: Image.asset(
                     'assets/images/iwwa_swipe.png',
@@ -39,8 +39,8 @@ class OrderCard extends StatelessWidget {
             Expanded(
               child: ListView.builder(
                 itemCount: 3,
-                itemBuilder: (context, index) => CardListItem(
-                  title: "Item#${index + 1}",
+                itemBuilder: (BuildContext context, int index) => CardListItem(
+                  title: 'Item#${index + 1}',
                 ),
               ),
             ),

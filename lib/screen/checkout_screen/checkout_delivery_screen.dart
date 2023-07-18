@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/text_componets.dart';
-import 'package:study_ui_flutter_tora_2/header/appbar.dart';
-import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
+import '../../components/box_componets.dart';
+import '../../components/button_componets.dart';
+import '../../components/text_componets.dart';
+import '../../header/appbar.dart';
 import '../../models/info_payment_model.dart';
+import '../../router/routerlinks.dart';
+import '../../styles/colors_style.dart';
 
 class CheckoutDeliveryScreen extends StatefulWidget {
-  const CheckoutDeliveryScreen({Key? key}) : super(key: key);
+  const CheckoutDeliveryScreen({super.key});
 
   @override
   CheckoutDeliveryScreenState createState() => CheckoutDeliveryScreenState();
@@ -21,28 +21,28 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppbar(context, 'header', 'Checkout'),
+      appBar: getAppbar(context, 'header', 'Checkout', ''),
       backgroundColor: ThemeColors.colorBg,
       body: Padding(
         padding: const EdgeInsets.only(left: 50.0, right: 50.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText.title34("Delivery"),
+          children: <Widget>[
+            CustomText.title34('Delivery'),
             BoxSize.sizedBoxH20(),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CustomText.titleCard("Address details"),
+                  children: <Widget>[
+                    CustomText.titleCard('Address details'),
                     const SizedBox(
                       width: 100,
                     ),
                     const Text(
-                      "change",
+                      'change',
                       style: TextStyle(
                         fontSize: 15,
                         fontFamily: 'SF Pro Text',
@@ -63,16 +63,16 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                       padding: const EdgeInsets.only(top: 10.0, left: 15),
                       child: Column(
                         children: infotPaymentList.asMap().entries.map(
-                          (item) {
-                            final items = item.value;
+                          (MapEntry<int, PaymentInfoModel> item) {
+                            final PaymentInfoModel items = item.value;
                             return Column(
-                              children: [
+                              children: <Widget>[
                                 Row(
-                                  children: [
+                                  children: <Widget>[
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: [
+                                      children: <Widget>[
                                         CustomText.nameX15(items.name),
                                         Container(
                                           alignment: Alignment.center,
@@ -86,14 +86,14 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                                 ),
                                 BoxSize.sizedBoxH10(),
                                 Row(
-                                  children: [
+                                  children: <Widget>[
                                     Container(
                                       alignment: Alignment.center,
                                       width: 255,
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
+                                        children: <Widget>[
                                           CustomText.descriptionX15(
                                               items.description),
                                           Container(
@@ -110,7 +110,7 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                                 ),
                                 BoxSize.sizedBoxH10(),
                                 Row(
-                                  children: [
+                                  children: <Widget>[
                                     CustomText.descriptionX15(items.phone),
                                   ],
                                 ),
@@ -128,12 +128,12 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
             BoxSize.sizedBoxH20(),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText.titleCard("Delivery method."),
+              children: <Widget>[
+                CustomText.titleCard('Delivery method.'),
                 BoxSize.sizedBoxH20(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Container(
                       decoration: BoxDecoration(
                         color: ThemeColors.colorBgCard,
@@ -142,15 +142,15 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(21, 31, 10, 25),
                         child: Column(
-                          children: [
+                          children: <Widget>[
                             Row(
-                              children: [
+                              children: <Widget>[
                                 Radio<int>(
                                   value: 0,
                                   focusColor: ThemeColors.colorIcon,
                                   activeColor: ThemeColors.colorIcon,
                                   groupValue: selectedCard,
-                                  onChanged: (value) {
+                                  onChanged: (int? value) {
                                     setState(() {
                                       selectedCard = value!;
                                     });
@@ -158,9 +158,9 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+                                  children: <Widget>[
                                     Row(
-                                      children: [
+                                      children: <Widget>[
                                         CustomText.titleCard('Door delivery'),
                                       ],
                                     ),
@@ -177,13 +177,13 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                             ),
                             BoxSize.sizedBoxH10(),
                             Row(
-                              children: [
+                              children: <Widget>[
                                 Radio<int>(
                                   value: 1,
                                   focusColor: ThemeColors.colorIcon,
                                   activeColor: ThemeColors.colorIcon,
                                   groupValue: selectedCard,
-                                  onChanged: (value) {
+                                  onChanged: (int? value) {
                                     setState(() {
                                       selectedCard = value!;
                                     });
@@ -191,9 +191,9 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+                                  children: <Widget>[
                                     Row(
-                                      children: [
+                                      children: <Widget>[
                                         CustomText.titleCard('Pick up'),
                                       ],
                                     ),
@@ -212,9 +212,9 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
             BoxSize.sizedBoxH20(),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: <Widget>[
                 Text(
-                  "Tatal",
+                  'Tatal',
                   style: TextStyle(
                     fontSize: 17,
                     fontFamily: ' SF Pro Text',
@@ -225,7 +225,7 @@ class CheckoutDeliveryScreenState extends State<CheckoutDeliveryScreen> {
                   width: 150,
                 ),
                 Text(
-                  "23.000",
+                  '23.000',
                   style: TextStyle(
                     fontFamily: 'SF Pro Text',
                     fontSize: 22,

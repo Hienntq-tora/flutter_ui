@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:study_ui_flutter_tora_2/components/text_componets.dart';
-import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
+import '../components/text_componets.dart';
+import '../screen/home_screen/home_screen.dart';
+import '../styles/colors_style.dart';
 
 class CurrentAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CurrentAppbar({
-    Key? key,
+    super.key,
     required this.title,
     this.backPress,
-  }) : super(key: key);
+  });
 
   final String title;
   final VoidCallback? backPress;
@@ -26,11 +26,14 @@ class CurrentAppbar extends StatelessWidget implements PreferredSizeWidget {
             backPress!();
           } else {
             Navigator.of(context).pushReplacement(
-              PageRouteBuilder(
-                pageBuilder: (context, animation, secondaryAnimation) =>
+              PageRouteBuilder<dynamic>(
+                pageBuilder: (BuildContext context, Animation<double> animation,
+                        Animation<double> secondaryAnimation) =>
                     const HomeScreen(),
-                transitionsBuilder:
-                    (context, animation, secondaryAnimation, child) {
+                transitionsBuilder: (BuildContext context,
+                    Animation<double> animation,
+                    Animation<double> secondaryAnimation,
+                    Widget child) {
                   return SlideTransition(
                     position: Tween<Offset>(
                       begin: const Offset(-1.0, 0.0),
@@ -52,6 +55,3 @@ class CurrentAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-
-
-

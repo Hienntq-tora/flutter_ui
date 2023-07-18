@@ -1,15 +1,12 @@
-
-
-import 'package:study_ui_flutter_tora_2/router/router.dart';
+import 'router.dart';
 
 class RouterLinks {
-  final String title;
-  final String linkRouter;
-
   RouterLinks({
     required this.title,
     required this.linkRouter,
   });
+  final String title;
+  final String linkRouter;
 
   static final RouterLinks checkoutDelivery = RouterLinks(
     title: 'Start odering',
@@ -31,15 +28,15 @@ class RouterLinks {
   );
   static final RouterLinks notFoundHistory = RouterLinks(
     title: 'Start odering',
-    linkRouter:AppRoutes.order,
+    linkRouter: AppRoutes.order,
   );
   static final RouterLinks notUpdateProfile = RouterLinks(
     title: 'Updatet',
-    linkRouter:AppRoutes.profile,
+    linkRouter: AppRoutes.profile,
   );
   static final RouterLinks myProfile = RouterLinks(
     title: 'Update',
-    linkRouter:AppRoutes.profile,
+    linkRouter: AppRoutes.profile,
   );
 
   static final RouterLinks getStarted = RouterLinks(
@@ -52,12 +49,16 @@ class RouterLinks {
     linkRouter: AppRoutes.orderCard,
   );
 
- static final RouterLinks startLogin = RouterLinks(
+  static final RouterLinks startLogin = RouterLinks(
     title: 'Login',
     linkRouter: AppRoutes.home,
   );
   static final RouterLinks signUp = RouterLinks(
     title: 'Sign Up',
     linkRouter: AppRoutes.login,
+  );
+   static final RouterLinks notInternet = RouterLinks(
+    title: 'Try again',
+    linkRouter: AppRoutes.start,
   );
 }

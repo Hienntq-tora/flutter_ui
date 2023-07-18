@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/header/current_appbar.dart';
-import 'package:study_ui_flutter_tora_2/header/home_appbar.dart';
-import 'package:study_ui_flutter_tora_2/header/product_details_appbar.dart';
+import 'current_appbar.dart';
+import 'home_appbar.dart';
+import 'product_details_appbar.dart';
+import 'searchh_appbar.dart';
 
-PreferredSizeWidget  getAppbar(BuildContext context, String currentPage, String titles) {
+PreferredSizeWidget getAppbar(
+    BuildContext context, String currentPage, String? titles, String? search) {
   if (currentPage == 'home') {
-    return HomeAppbar(context);
+    return const HomeAppbar();
   } else if (currentPage == 'header') {
-    return CurrentAppbar(title: titles);
+    return CurrentAppbar(title: titles ?? '');
+  } else if (currentPage == 'search') {
+    return SearchAppbar(
+        onSearch: search != null ? (String value) {} : null, search: '');
   } else if (currentPage == 'product detail') {
     return const ProductDetailAppbar();
-  } 
-  else {
+  } else {
     return AppBar();
   }
 }
-
-
-
-
-

@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
+import '../styles/colors_style.dart';
 
 class CustomText extends Text {
   CustomText(
-    String data, {
-    Key? key,
+    super.data, {
+    super.key,
     double? fontSize,
     Color? color,
     FontWeight? fontWeight,
-    int? maxLines,
+    super.maxLines,
     double? lineHeight,
-    double? opacity,
     String? fontFamily,
-    TextAlign? textAlign,
-    TextOverflow? overflow,
+    super.textAlign,
+    super.overflow,
   }) : super(
-          data,
-          key: key,
           style: TextStyle(
             color: color,
             fontSize: fontSize,
@@ -24,9 +21,6 @@ class CustomText extends Text {
             fontWeight: fontWeight,
             height: lineHeight,
           ),
-          textAlign: textAlign,
-          maxLines: maxLines,
-          overflow: overflow,
         );
 
   static CustomText titleHeader(String text) {
@@ -37,6 +31,7 @@ class CustomText extends Text {
       fontFamily: 'SF Pro Text',
     );
   }
+
   static CustomText titleCard(String text) {
     return CustomText(
       text,
@@ -55,6 +50,7 @@ class CustomText extends Text {
       color: Colors.black,
     );
   }
+
   static CustomText titleDetails(String text) {
     return CustomText(
       text,
@@ -95,7 +91,7 @@ class CustomText extends Text {
     );
   }
 
-   static CustomText productTitle(String text) {
+  static CustomText productTitle(String text) {
     return CustomText(
       text,
       fontSize: 22,
@@ -104,7 +100,8 @@ class CustomText extends Text {
       lineHeight: 1.0,
     );
   }
-   static CustomText productNum(String text) {
+
+  static CustomText productNum(String text) {
     return CustomText(
       text,
       fontSize: 17,
@@ -131,12 +128,12 @@ class CustomText extends Text {
 
   static Widget notFoundDesText(String text) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 97, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       child: Wrap(
-        children: [
+        children: <Widget>[
           CustomText(
             text,
-            fontSize: 16,
+            fontSize: 17,
             fontFamily: 'SF Pro Text',
             textAlign: TextAlign.center,
             fontWeight: FontWeight.normal,
@@ -157,6 +154,7 @@ class CustomText extends Text {
       color: Colors.black,
     );
   }
+
   static CustomText descriptionX15(String text) {
     return CustomText(
       text,
@@ -167,7 +165,8 @@ class CustomText extends Text {
       maxLines: 2,
     );
   }
-    static CustomText nameX15(String text) {
+
+  static CustomText nameX15(String text) {
     return CustomText(
       text,
       fontSize: 17,
@@ -175,5 +174,4 @@ class CustomText extends Text {
       fontWeight: FontWeight.w500,
     );
   }
-  
 }

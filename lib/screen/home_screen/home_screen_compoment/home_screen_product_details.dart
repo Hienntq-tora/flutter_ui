@@ -1,17 +1,15 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:study_ui_flutter_tora_2/models/product_model.dart';
-import 'package:study_ui_flutter_tora_2/router/router.dart';
-import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen_compoment/home_screen_product_card.dart';
+import '../../../models/product_model.dart';
+import '../../../router/router.dart';
+import 'home_screen_product_card.dart';
 
 class ProductDetails extends StatefulWidget {
-  final int currentIndex;
-
   const ProductDetails({
-    Key? key,
+    super.key,
     required this.currentIndex,
-  }) : super(key: key);
+  });
+  final int currentIndex;
 
   @override
   ProductDetailsState createState() => ProductDetailsState();
@@ -39,18 +37,18 @@ class ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         Expanded(
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: categories[widget.currentIndex].productList.length,
-            itemBuilder: (context, index) {
-              final product =
+            itemBuilder: (BuildContext context, int index) {
+              final ProductModel product =
                   categories[widget.currentIndex].productList[index];
               return Padding(
                 padding: const EdgeInsets.only(left: 34),
                 child: GestureDetector(
-                  onDoubleTap: (){
+                  onDoubleTap: () {
                     Navigator.pushNamed(context, AppRoutes.productdetails);
                   },
                   child: Container(
@@ -62,7 +60,6 @@ class ProductDetailsState extends State<ProductDetails> {
             },
           ),
         ),
-        
       ],
     );
   }

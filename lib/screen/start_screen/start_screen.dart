@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/screen/login_screen/login_screen.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
-import '../profile_screen/my_profile/my_proflie_screen.dart';
+import '../../styles/colors_style.dart';
+import '../login_screen/login_screen.dart';
 
 class StartScreen extends StatefulWidget {
-  static const String routeName = '/start';
   const StartScreen({
     super.key,
   });
+  static const String routeName = '/start';
 
   @override
   State<StartScreen> createState() => _StartScreenState();
@@ -22,10 +21,10 @@ class _StartScreenState extends State<StartScreen> {
       body: Padding(
         padding: const EdgeInsets.only(top: 56),
         child: Stack(
-          children: [
+          children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(left: 49),
                   child: Container(
@@ -63,7 +62,7 @@ class _StartScreenState extends State<StartScreen> {
                   decoration: const BoxDecoration(),
                   child: Stack(
                     fit: StackFit.passthrough,
-                    children: [
+                    children: <Widget>[
                       Positioned(
                         right: -20,
                         top: 20,
@@ -97,7 +96,7 @@ class _StartScreenState extends State<StartScreen> {
                           height: 20,
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(
-                              colors: [
+                              colors: <Color>[
                                 Colors.transparent,
                                 Colors.transparent,
                                 Color(0xffFF460A),
@@ -111,7 +110,7 @@ class _StartScreenState extends State<StartScreen> {
                               bottomLeft: Radius.circular(10),
                               bottomRight: Radius.circular(10),
                             ),
-                            boxShadow: [
+                            boxShadow: <BoxShadow>[
                               BoxShadow(
                                 color: Colors.red.withOpacity(0.2),
                                 spreadRadius: 5,
@@ -138,8 +137,9 @@ class _StartScreenState extends State<StartScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()),
+                        MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) =>
+                                const LoginScreen()),
                       );
                     },
                     child: const Text(

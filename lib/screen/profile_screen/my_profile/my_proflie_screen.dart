@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:study_ui_flutter_tora_2/components/text_componets.dart';
-import 'package:study_ui_flutter_tora_2/header/appbar.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
 
 import '../../../components/box_componets.dart';
 import '../../../components/button_componets.dart';
+import '../../../components/text_componets.dart';
+import '../../../header/appbar.dart';
 import '../../../models/profile_model.dart';
 import '../../../router/router.dart';
 import '../../../router/routerlinks.dart';
+import '../../../styles/colors_style.dart';
 
 class MyProfileScreen extends StatefulWidget {
   const MyProfileScreen({super.key});
@@ -21,21 +21,21 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppbar(context, 'header', ''),
+      appBar: getAppbar(context, 'header', '', ''),
       body: SingleChildScrollView(
         child: Padding(
           padding:
               const EdgeInsets.only(left: 50, right: 50, top: 10, bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               CustomText.title34('My Profile'),
               const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: <Widget>[
                   CustomText.titleCard('Personal details'),
                   const SizedBox(
                     width: 100,
@@ -57,12 +57,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
+                  boxShadow: const <BoxShadow>[
                     BoxShadow(
                       color: Color.fromRGBO(0, 0, 0, 0.03),
                       offset: Offset(0, 10),
                       blurRadius: 40,
-                      spreadRadius: 0,
                     ),
                   ],
                 ),
@@ -72,7 +71,6 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.all(20),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Image.asset(
@@ -132,7 +130,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     Container(
                       height: 60,
                       decoration: BoxDecoration(
@@ -142,8 +140,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             CustomText.titleCard('Orders'),
                             const Spacer(),
                             IconButton(
@@ -169,15 +166,14 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             CustomText.titleCard('Pending reviews'),
                             const Spacer(),
                             IconButton(
                               icon: SvgPicture.asset(
                                   'assets/images/svg/chevron-right.svg'),
                               onPressed: () {
-                                Navigator.pushNamed(context, AppRoutes.home);
+                                Navigator.pushNamed(context, AppRoutes.myoffer);
                               },
                             ),
                           ],
@@ -196,8 +192,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             CustomText.titleCard('Faq'),
                             const Spacer(),
                             IconButton(
@@ -205,14 +200,16 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                   'assets/images/svg/chevron-right.svg'),
                               onPressed: () {
                                 Navigator.pushNamed(
-                                    context, AppRoutes.home);
+                                    context, AppRoutes.internet);
                               },
                             ),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 27,),
+                    const SizedBox(
+                      height: 27,
+                    ),
                     Container(
                       height: 60,
                       decoration: BoxDecoration(
@@ -222,8 +219,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             CustomText.titleCard('Help'),
                             const Spacer(),
                             IconButton(

@@ -7,19 +7,18 @@ import '../../../components/text_componets.dart';
 import '../../../styles/colors_style.dart';
 
 class CardListItem extends StatefulWidget {
-  final String title;
-
   const CardListItem({
-    Key? key,
+    super.key,
     required this.title,
-  }) : super(key: key);
+  });
+  final String title;
 
   @override
   State<CardListItem> createState() => _CardListItemState();
 }
 
 class _CardListItemState extends State<CardListItem> {
-int quantity = 1;
+  int quantity = 1;
 
   void incrementQuantity() {
     setState(() {
@@ -35,13 +34,12 @@ int quantity = 1;
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Slidable(
       actionPane: const SlidableDrawerActionPane(),
       fastThreshold: 24,
-      secondaryActions: [
+      secondaryActions: <Widget>[
         IconSlideAction(
           color: ThemeColors.colorBackgroup,
           iconWidget: Container(
@@ -73,7 +71,7 @@ int quantity = 1;
             width: 70,
             margin: const EdgeInsets.only(right: 15),
             decoration: const BoxDecoration(
-              color:ThemeColors.colorMain,
+              color: ThemeColors.colorMain,
               shape: BoxShape.circle,
             ),
           ),
@@ -90,7 +88,7 @@ int quantity = 1;
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: <Widget>[
               ClipOval(
                 child: Image.asset(
                   'assets/images/product_image/product_1.png',
@@ -101,7 +99,7 @@ int quantity = 1;
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   CustomText.titleCard('Veggie tomato mix'),
                   const Text(
                     '#1,900',
@@ -116,7 +114,7 @@ int quantity = 1;
                 ],
               ),
               Column(
-                children: [
+                children: <Widget>[
                   const SizedBox(
                     height: 42,
                   ),
@@ -133,7 +131,7 @@ int quantity = 1;
                         GestureDetector(
                           onTap: decrementQuantity,
                           child: const Text(
-                            "-",
+                            '-',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
@@ -158,7 +156,7 @@ int quantity = 1;
                         GestureDetector(
                           onTap: incrementQuantity,
                           child: const Text(
-                            "+",
+                            '+',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 13,

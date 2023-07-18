@@ -1,35 +1,75 @@
 class ProductModel {
+  ProductModel(
+      {required this.title,
+      required this.imagePath,
+      required this.number,
+      required this.imageList});
   final String title;
   final String imagePath;
   final String number;
   final List<String> imageList;
-
-  ProductModel({required this.title, required this.imagePath, required this.number, required this.imageList});
 }
 
 class Category {
+  Category({required this.title, required this.productList});
   final String title;
   List<ProductModel> productList;
-  Category({required this.title, required this.productList});
 }
 
-List<Category> categories = [
+List<Category> categories = <Category>[
   Category(
     title: 'Foods',
-    productList: [
+    productList: <ProductModel>[
       ProductModel(
           title: 'Veggie tomato mix',
           imagePath: 'assets/images/product_image/product_1.png',
           number: 'N1,900',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
       ProductModel(
           title: 'Spicy fish sauce',
-          imagePath:'assets/images/product_image/product_2.png',
+          imagePath: 'assets/images/product_image/product_2.png',
           number: 'N2,300.99',
-          imageList: [
+          imageList: <String>[
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+      ProductModel(
+          title: 'Spicy fish sauce',
+          imagePath: 'assets/images/product_image/product_3.png',
+          number: 'N2,300.99',
+          imageList: <String>[
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+      ProductModel(
+          title: 'Spicy fish sauce',
+          imagePath: 'assets/images/product_image/product_4.png',
+          number: 'N2,300.99',
+          imageList: <String>[
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+    ],
+  ),
+  Category(
+    title: 'Foods1',
+    productList: <ProductModel>[
+      ProductModel(
+          title: 'Veggie tomato mix',
+          imagePath: 'assets/images/product_image/product_3.png',
+          number: 'N1,900',
+          imageList: <String>[
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+      ProductModel(
+          title: 'Spicy fish sauce',
+          imagePath: 'assets/images/product_image/product_4.png',
+          number: 'N2,300.99',
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
@@ -37,12 +77,12 @@ List<Category> categories = [
   ),
   Category(
     title: 'Drinks',
-    productList: [
+    productList: <ProductModel>[
       ProductModel(
           title: 'Wine',
           imagePath: 'assets/images/product_image/product_2.png',
           number: 'N1,900',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
@@ -50,7 +90,23 @@ List<Category> categories = [
           title: 'Coffee',
           imagePath: 'assets/images/product_image/product_1.png',
           number: 'N2,300.99',
-          imageList: [
+          imageList: <String>[
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+      ProductModel(
+          title: 'Veggie tomato mix',
+          imagePath: 'assets/images/product_image/product_1.png',
+          number: 'N1,900',
+          imageList: <String>[
+            'assets/images/product_image/product_1.png',
+            'assets/images/product_image/product_2.png',
+          ]),
+      ProductModel(
+          title: 'Spicy fish sauce',
+          imagePath: 'assets/images/product_image/product_2.png',
+          number: 'N2,300.99',
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
@@ -58,12 +114,12 @@ List<Category> categories = [
   ),
   Category(
     title: 'Snack',
-    productList: [
+    productList: <ProductModel>[
       ProductModel(
           title: 'Cookies',
           imagePath: 'assets/images/product_image/product_1.png',
           number: 'N1,900',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
@@ -71,20 +127,20 @@ List<Category> categories = [
           title: 'Cakes',
           imagePath: 'assets/images/product_image/product_2.png',
           number: 'N2,300.99',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
     ],
-  ),  
+  ),
   Category(
     title: 'Snack1',
-    productList: [
+    productList: <ProductModel>[
       ProductModel(
           title: 'Cookies',
           imagePath: 'assets/images/product_image/product_1.png',
           number: 'N1,900',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
@@ -92,20 +148,20 @@ List<Category> categories = [
           title: 'Cakes',
           imagePath: 'assets/images/product_image/product_2.png',
           number: 'N2,300.99',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
     ],
-  ),  
+  ),
   Category(
     title: 'Snack2',
-    productList: [
+    productList: <ProductModel>[
       ProductModel(
           title: 'Cookies',
           imagePath: 'assets/images/product_image/product_1.png',
           number: 'N1,900',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
@@ -113,20 +169,20 @@ List<Category> categories = [
           title: 'Cakes',
           imagePath: 'assets/images/product_image/product_2.png',
           number: 'N2,300.99',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
     ],
-  ),  
+  ),
   Category(
     title: 'Snack3',
-    productList: [
+    productList: <ProductModel>[
       ProductModel(
           title: 'Cookies',
           imagePath: 'assets/images/product_image/product_1.png',
           number: 'N1,900',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
@@ -134,10 +190,10 @@ List<Category> categories = [
           title: 'Cakes',
           imagePath: 'assets/images/product_image/product_2.png',
           number: 'N2,300.99',
-          imageList: [
+          imageList: <String>[
             'assets/images/product_image/product_1.png',
             'assets/images/product_image/product_2.png',
           ]),
     ],
-  ),  
+  ),
 ];

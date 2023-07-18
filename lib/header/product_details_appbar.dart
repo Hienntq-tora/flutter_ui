@@ -2,18 +2,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:study_ui_flutter_tora_2/router/router.dart';
-import 'package:study_ui_flutter_tora_2/screen/home_screen/home_screen.dart';
+import '../router/router.dart';
+import '../screen/home_screen/home_screen.dart';
 
-class ProductDetailAppbar extends StatelessWidget implements PreferredSizeWidget {
-    const ProductDetailAppbar({
-    Key? key,
+class ProductDetailAppbar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const ProductDetailAppbar({
+    super.key,
     this.backPress,
-  }) : super(key: key);
+  });
 
   final VoidCallback? backPress;
 
- 
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -21,21 +21,22 @@ class ProductDetailAppbar extends StatelessWidget implements PreferredSizeWidget
       backgroundColor: Colors.transparent,
       elevation: 0,
       leading: Align(
-        alignment: Alignment.center,
         child: IconButton(
-          icon: SvgPicture.asset(
-          'assets/images/svg/chevron-left.svg'
-        ),
+          icon: SvgPicture.asset('assets/images/svg/chevron-left.svg'),
           onPressed: () {
             if (backPress != null) {
               backPress!();
             } else {
               Navigator.of(context).pushReplacement(
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
+                PageRouteBuilder<dynamic>(
+                  pageBuilder: (BuildContext context,
+                          Animation<double> animation,
+                          Animation<double> secondaryAnimation) =>
                       const HomeScreen(),
-                  transitionsBuilder:
-                      (context, animation, secondaryAnimation, child) {
+                  transitionsBuilder: (BuildContext context,
+                      Animation<double> animation,
+                      Animation<double> secondaryAnimation,
+                      Widget child) {
                     return SlideTransition(
                       position: Tween<Offset>(
                         begin: const Offset(-1.0, 0.0),
@@ -50,7 +51,7 @@ class ProductDetailAppbar extends StatelessWidget implements PreferredSizeWidget
           },
         ),
       ),
-      actions: [
+      actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 36.0),
           child: IconButton(
@@ -64,6 +65,7 @@ class ProductDetailAppbar extends StatelessWidget implements PreferredSizeWidget
       ],
     );
   }
- @override
+
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

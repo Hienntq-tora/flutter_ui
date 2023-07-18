@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:study_ui_flutter_tora_2/components/box_componets.dart';
-import 'package:study_ui_flutter_tora_2/components/button_componets.dart';
-import 'package:study_ui_flutter_tora_2/router/routerlinks.dart';
-import 'package:study_ui_flutter_tora_2/styles/colors_style.dart';
+import '../../../components/box_componets.dart';
+import '../../../components/button_componets.dart';
+import '../../../router/routerlinks.dart';
+import '../../../styles/colors_style.dart';
 
 class SignInForm extends StatelessWidget {
-  const SignInForm({Key? key}) : super(key: key);
+  const SignInForm({super.key, this.onPressed});
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +16,14 @@ class SignInForm extends StatelessWidget {
         alignment: Alignment.center,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(bottom: 32),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
-                    "Email address",
+                    'Email address',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontFamily: 'SF Pro Text',
@@ -36,9 +37,8 @@ class SignInForm extends StatelessWidget {
                       fontFamily: 'SF Pro Text',
                       fontWeight: FontWeight.w600,
                     ),
-                    obscureText: false,
                     decoration: InputDecoration(
-                      hintText: "Email address",
+                      hintText: 'Email address',
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.grey,
@@ -53,9 +53,9 @@ class SignInForm extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 26),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
-                    "Password",
+                    'Password',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 15,
@@ -72,12 +72,8 @@ class SignInForm extends StatelessWidget {
                     ),
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "Password",
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                        ),
-                      ),
+                      hintText: 'Password',
+                      border: UnderlineInputBorder(),
                     ),
                   ),
                 ],
@@ -86,7 +82,7 @@ class SignInForm extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(bottom: 90),
               child: Text(
-                "Forgot passcode?",
+                'Forgot passcode?',
                 style: TextStyle(
                     fontSize: 17,
                     color: ThemeColors.colorTextbold,
@@ -96,7 +92,9 @@ class SignInForm extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.bottomCenter,
-              child: CustomButton(routerLink: RouterLinks.startLogin),
+              child: CustomButton(
+                routerLink: RouterLinks.startLogin,
+              ),
             ),
           ],
         ),
