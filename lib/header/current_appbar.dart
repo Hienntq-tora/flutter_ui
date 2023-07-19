@@ -17,6 +17,7 @@ class CurrentAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leadingWidth: 120,
       backgroundColor: ThemeColors.colorBackgroup,
       elevation: 0,
       leading: IconButton(

@@ -31,7 +31,9 @@ class InternetConnectScreen extends StatelessWidget {
                     'Your internet connection is currentlynot available please check or try again.'),
               ],
             ),
-           const SizedBox(height: 55,),
+            const SizedBox(
+              height: 20,
+            ),
             CustomButton(routerLink: RouterLinks.notInternet),
           ],
         ),

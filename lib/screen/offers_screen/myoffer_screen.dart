@@ -21,9 +21,9 @@ class MyofferScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                CustomText.notFoundText('No internet Connection'),
+                CustomText.notFoundText('ohh snap!  No offers yet'),
                 CustomText.notFoundDesText(
-                    'Your internet connection is currentlynot available please check or try again.'),
+                    'Bella dose’t have any offers yet please check again.'),
               ],
             ),
           ),

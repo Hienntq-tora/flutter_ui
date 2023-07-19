@@ -19,6 +19,7 @@ class SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
   String searchTerm = '';
   List<ProductModel> searchResults = <ProductModel>[];
+  List<ProductModel> allProductsList = <ProductModel>[];
 
   List<ProductModel> getAllProducts() {
     return categories
@@ -26,11 +27,16 @@ class SearchScreenState extends State<SearchScreen> {
         .toList();
   }
 
+  @override
+  void initState() {
+    super.initState();
+    allProductsList = getAllProducts();
+  }
+
   int getCurrentIndex(
       int index, int totalProductCount, List<ProductModel> searchResults) {
     int currentIndex = 0;
     int productCount = 0;
-
     for (final Category category in categories) {
       final List<ProductModel> productList = category.productList;
       if (index >= productCount && index < productCount + productList.length) {
@@ -39,18 +45,14 @@ class SearchScreenState extends State<SearchScreen> {
       }
       productCount += productList.length;
     }
-
     return currentIndex;
   }
 
   void performSearch(String searchTerm) {
-    final List<ProductModel> allProducts = getAllProducts();
-
     final List<ProductModel> results =
-        allProducts.where((ProductModel product) {
+        allProductsList.where((ProductModel product) {
       return product.title.toLowerCase().contains(searchTerm.toLowerCase());
     }).toList();
-
     setState(() {
       this.searchTerm = searchTerm;
       searchResults = results;
@@ -60,6 +62,7 @@ class SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     final int totalProductCount = searchResults.length;
+
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -84,7 +87,13 @@ class SearchScreenState extends State<SearchScreen> {
               Expanded(
                 child: TextField(
                   controller: searchController,
-                  onChanged: performSearch,
+                  onChanged: (String value) {
+                    setState(
+                      () {
+                        performSearch(value);
+                      },
+                    );
+                  },
                   enableSuggestions: false,
                   autocorrect: false,
                   smartDashesType: SmartDashesType.disabled,
@@ -130,34 +139,30 @@ class SearchScreenState extends State<SearchScreen> {
                       ),
                     ),
                     Expanded(
-                      child: GridView.custom(
-                        gridDelegate: SliverWovenGridDelegate.count(
-                          crossAxisCount: 2,
-                          mainAxisSpacing:
-                              MediaQuery.of(context).size.width * 0.02,
-                          crossAxisSpacing:
-                              MediaQuery.of(context).size.height * 0.02,
-                          pattern: <WovenGridTile>[
-                            const WovenGridTile(
-                              0.4,
-                            ),
-                          ],
-                        ),
-                        childrenDelegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                            final int currentIndex = getCurrentIndex(
-                                index, totalProductCount, searchResults);
+                      child: MasonryGridView.count(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 35,
+                        itemBuilder: (BuildContext context, int index) {
+                          final int currentIndex = getCurrentIndex(
+                              index, totalProductCount, searchResults);
+                          final bool isOddIndex = index.isOdd;
+                          if (isOddIndex) {
                             return Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: index % 2 != 0 ? 50.0 : 0),
+                              padding: const EdgeInsets.only(top: 50),
                               child: Tile(
                                 index: index,
                                 currentIndex: currentIndex,
                               ),
                             );
-                          },
-                          childCount: totalProductCount,
-                        ),
+                          }
+
+                          return Tile(
+                            index: index,
+                            currentIndex: currentIndex,
+                          );
+                        },
+                        itemCount: totalProductCount,
                       ),
                     ),
                   ],
